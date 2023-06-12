@@ -1,0 +1,437 @@
+@import url("fonts.css");
+@import url("fontello.css");
+
+/* Общие стили */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: Inter, sans-serif;
+    font-size: 62.5%;
+    /* равен 10px (чтобы удобнее было считать относительные единицы) */
+}
+
+:root {
+    --main-font-size: max(1rem, min(1.4rem, 1.3vw));
+    /* адаптивный размер шрифта (от ширины экрана) с ограничениями min и max */
+}
+
+body {
+    min-width: 320px;
+    font-size: var(--main-font-size); /* базовый размер шрифта */
+    overflow-x: hidden;
+}
+
+.centered_page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 4.3em;
+    /* выполнение требования №2 по максимальной ширине и выравниванию по центру */
+    /* при максимальной ширине отступы равны 60px */
+}
+
+.flex_centered {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Стили для шапки */
+
+header {
+    background-color: #cbecff;
+}
+
+.header_content {
+    position: relative;
+}
+
+.header_top_content {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-areas: "header_text header_img";
+    justify-content: space-between;
+    gap: 4em;
+}
+
+/* Переключение языка */
+
+.lang_switch {
+    position: absolute;
+    top: -2.4rem;
+    right: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.lang_switch a {
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 0.4rem;
+    text-decoration: none;
+    line-height: 1.4rem;
+}
+
+.lang_switch .selected {
+    color: #0962e8;
+    background: #fff;
+    border-radius: 50%;
+    cursor: default;
+}
+
+.lang_switch .not_selected {
+    color: #29374e;
+}
+
+/* Заголовок с абзацем и кнопкой */
+
+.header_text {
+    margin-top: 5em;
+    max-width: 30em;
+    grid-area: header_text;
+}
+
+.fin_kit {
+    font-size: 3.8em;
+    font-weight: 700;
+}
+
+.fin_kit span {
+    background-color: #fff;
+    color: #0962e8;
+    border-radius: 0.3em;
+    margin: 0.1em;
+    padding: 0.1em 0.2em;
+}
+
+.header_text p {
+    color: #29374e;
+    font-size: 1.15em;
+    font-weight: 400;
+    margin-top: 1em;
+    margin-bottom: 1.8em;
+}
+
+.booking_button {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #fff;
+    background: #0962e8;
+    width: 15rem;
+    height: 3.8rem;
+    border: none;
+    border-radius: 0.6rem;
+}
+
+/* Рука с телефоном и кругами */
+
+#header_img {
+    font-size: 1.15em;
+    position: relative;
+    width: 28.2em;
+    height: 29em;
+    grid-area: header_img;
+    transition: all 1s;
+}
+
+#wide_circle {
+    position: absolute;
+    width: 29em;
+    height: 29em;
+    top: 0;
+    left: 2em;
+    border: 3.8em solid #e0f2ff;
+    border-radius: 50%;
+}
+
+#narrow_circle {
+    position: absolute;
+    width: 28.5em;
+    height: 28.5em;
+    top: 0.2em;
+    left: -0.3em;
+    border: 0.3em solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    box-shadow: 0 0.1em 0.6em rgba(0, 0, 0, 0.1);
+}
+
+#narrow_circle img {
+    position: absolute;
+    width: 22em;
+    height: auto;
+    display: block;
+    top: 0.3em;
+    left: 5.45em;
+}
+
+/* Блоки с иконками в шапке (4 шт) */
+
+.header_advantages {
+    position: absolute;
+    bottom: -5em;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: space-between;
+    gap: 1.2em;
+}
+
+.advantage_element {
+    position: relative;
+    font-size: 0.85em;
+    font-weight: 500;
+    padding: 1.5rem 4.7rem 1.5rem 1.4rem;
+    color: #29374e;
+    background: #fff;
+    box-shadow: 4px 3px 9px rgba(0, 0, 0, 0.05);
+    border-radius: 16px;
+}
+
+.icon {
+    display: inline-block;
+    background: #eff9ff;
+    text-align: center;
+    border-radius: 50%;
+}
+
+.advantage_element .icon {
+    position: absolute;
+    top: 1.15rem;
+    right: 1.15rem;
+    width: 2.2rem;
+    height: 2.2rem;
+}
+
+.advantage_element i {
+    width: 1.3rem;
+    font-size: 1.3rem;
+    line-height: 2.2rem;
+}
+
+/* Основной контент страницы */
+
+main h2 {
+    color: #29374e;
+    font-size: 2em;
+    font-weight: 500;
+    letter-spacing: -0.03em;
+}
+
+main h2 span {
+    color: #0962e8;
+}
+
+/* Заголовок основного контента */
+
+.centered_h2 {
+    padding: 1.6em 0;
+    text-align: center;
+}
+
+/* Блоки с описанием платформ */
+
+.platforms {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-between;
+    margin-bottom: 6em;
+    gap: 1.1em;
+}
+
+.platform_element {
+    padding: 0.5em 0.5em 0 1.4em;
+    background: #e9f6ff;
+    border-radius: 1.6em;
+    gap: 1.2em;
+}
+
+.platform_element h3 {
+    font-size: 1.1em;
+    color: #000;
+    font-weight: 600;
+    margin-top: 1em;
+    margin-bottom: 0.6em;
+}
+
+.platform_element h3 span {
+    white-space: nowrap;
+}
+
+.platform_element p {
+    font-size: 1rem;
+    /* размер шрифта фиксированный независимо от ширины экрана */
+    color: #000;
+    font-weight: 400;
+}
+
+.platform_element img {
+    width: 11.4em;
+    height: auto;
+    display: block;
+}
+
+/* Самый нижний блок с описанием ценностей */
+
+.possibilities {
+    gap: 3em;
+}
+
+.text_with_button h2 {
+    margin-bottom: 0.8em;
+}
+
+.text_with_button p {
+    margin-bottom: 1.9em;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #1e2837;
+}
+
+/* Блоки с иконками и перечислением ценностей (4 шт) */
+
+.possibility_list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 1.1em;
+}
+
+.possibilities_element {
+    position: relative;
+    background: #fff;
+    border-radius: 1.6em;
+    padding: 3.8em 1.4em 1.4em;
+}
+
+.possibilities_element .icon {
+    position: absolute;
+    top: 1em;
+    left: 1.4em;
+    width: 2.2em;
+    height: 2.2em;
+}
+
+.possibilities_element i {
+    width: 1.3em;
+    font-size: 1.3em;
+    line-height: 1.8em;
+}
+
+.possibilities_element p {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #29374e;
+}
+
+/* Медиа-запросы */
+
+@media screen and (max-width: 720px) {
+    .header_advantages {
+        position: initial;
+        bottom: 0;
+        margin-top: 1.7em;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+    }
+
+    .advantage_element {
+        padding: 2.6rem 1.4rem 1.4rem;
+    }
+
+    .advantage_element .icon {
+        top: -0.3rem;
+        left: 1.15rem;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .centered_page {
+        padding: 1.6em;
+    }
+
+    #header_id {
+        padding-top: 4.3em;
+    }
+
+    .header_top_content {
+        grid-template-columns: 100%;
+        grid-template-rows: repeat(2, auto);
+        grid-template-areas:
+            "header_img"
+            "header_text";
+        gap: 0.5em;
+    }
+
+    .header_text {
+        margin-top: 0;
+    }
+
+    .header_text p {
+        margin-bottom: 1em;
+    }
+
+    #header_img {
+        margin-bottom: -10em;
+        justify-self: end;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #header_img {
+        margin-bottom: -5em;
+    }
+
+    .platforms {
+        grid-template-columns: 100%;
+        grid-template-rows: repeat(2, 1fr);
+        margin-bottom: 4em;
+    }
+
+    .possibilities {
+        flex-direction: column;
+    }
+
+    .possibilities_element {
+        padding-top: 2.5em;
+        box-shadow: 0.6em 0.4em 1.2em rgba(0, 0, 0, 0.05);
+    }
+
+    .possibilities_element .icon {
+        top: -0.3rem;
+    }
+
+    .text_with_button {
+        text-align: center;
+    }
+
+    .text_with_button h2 {
+        margin-bottom: 0.4em;
+    }
+
+    .text_with_button p {
+        margin-bottom: 1.2em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #header_img {
+        margin-bottom: 0;
+    }
+}
+
+@media screen and (max-width: 414px) {
+    .header_text {
+        max-width: none;
+    }
+
+    #header_img {
+        justify-self: start;
+        left: -1.4em;
+    }
+
+    .booking_button {
+        width: 100%;
+    }
+}
