@@ -71,9 +71,10 @@ header {
 .lang_switch a {
     font-size: 1rem;
     font-weight: 400;
+    width: 2rem;
+    height: 2rem;
     padding: 0.4rem;
     text-decoration: none;
-    line-height: 1.4rem;
 }
 
 .lang_switch .selected {
@@ -95,12 +96,12 @@ header {
     grid-area: header_text;
 }
 
-.fin_kit {
+h1 {
     font-size: 3.8em;
     font-weight: 700;
 }
 
-.fin_kit span {
+h1 span {
     background-color: #fff;
     color: #0962e8;
     border-radius: 0.3em;
